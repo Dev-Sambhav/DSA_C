@@ -159,10 +159,6 @@ void add_after()
     {
         printf("\nGiven Location must be in between nodes!!!\n");
     }
-    else if (loc == 1)
-    {
-        printf("\nFor adding at 1st location begin function is already present!!!\n");
-    }
     else
     {
         // init a temp pointer for getting a new node from the user
