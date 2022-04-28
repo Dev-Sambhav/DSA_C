@@ -95,17 +95,66 @@ void insert_at_begin()
     }
 }
 
-void display(){
-    if(head == NULL){
+// Traverse function
+void display()
+{
+    if (head == NULL)
+    {
         printf("\nList is Empty!!!\n");
-    }else{
+    }
+    else
+    {
         struct node *temp = head;
         printf("\nNodes:- ");
-        while(temp->right != NULL){
-            printf("%d-->",temp->data);
+        while (temp->right != NULL)
+        {
+            printf("%d-->", temp->data);
             temp = temp->right;
         }
-        printf("%d\n",temp->data);
+        printf("%d\n", temp->data);
+    }
+}
+
+// Insert a node after specified node
+void add_after()
+{
+    int loc;
+    printf("\nAfter which node do you want to add another node? ");
+    scanf("%d", &loc);
+    if (loc > length())
+    {
+        printf("\nInvalid Location!!!\n");
+    }
+    else
+    {
+        struct node *temp, *temp_2;
+        temp = (struct node *)malloc(sizeof(struct node));
+        // ask to user
+        printf("\nEnter Node Data:- ");
+        scanf("%d", &temp->data);
+        temp->left = NULL;
+        temp->right = NULL;
+        if (head == NULL)
+        {
+            head = temp;
+        }
+        else
+        {
+            int i = 1;
+            temp_2 = head;
+            while (i < loc)
+            {
+                temp_2 = temp_2->right;
+                i++;
+            }
+            temp->right = temp_2->right;
+            if (loc != length())
+            {
+                temp_2->right->left = temp;
+            }
+            temp->left = temp_2;
+            temp_2->right = temp;
+        }
     }
 }
 int main()
@@ -129,7 +178,7 @@ int main()
             break;
         case 3:
             system("cls");
-            // add_after();
+            add_after();
             break;
         case 4:
             system("cls");
