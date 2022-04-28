@@ -94,12 +94,26 @@ void insert_at_begin()
         head = temp;
     }
 }
+
+void display(){
+    if(head == NULL){
+        printf("\nList is Empty!!!\n");
+    }else{
+        struct node *temp = head;
+        printf("\nNodes:- ");
+        while(temp->right != NULL){
+            printf("%d-->",temp->data);
+            temp = temp->right;
+        }
+        printf("%d\n",temp->data);
+    }
+}
 int main()
 {
     int ch;
     while (1)
     {
-        printf("\nDouble Linked List Operations:- \n");
+        printf("\nDouble Linked List Operations:- ");
         printf("\n1. Insert at End\n2. Insert at Begin\n3. Add After\n4. Display\n5. Length\n6. Delete\n7. Exit");
         printf("\nEnter Your Choice: ");
         scanf("%d", &ch);
@@ -119,7 +133,7 @@ int main()
             break;
         case 4:
             system("cls");
-            // display();
+            display();
             break;
         case 5:
             system("cls");
