@@ -157,6 +157,60 @@ void add_after()
         }
     }
 }
+// Delete Function
+void delete ()
+{
+    int loc, i = 1;
+    // check list if empty or not
+    if (head == NULL)
+    {
+        printf("\nList is Empty!!!\n");
+    }
+    else
+    {
+        struct node *temp = head, *temp_2;
+        printf("\nWhich node do want to delete? :- ");
+        scanf("%d", &loc);
+        if (loc == 1 && length() != 1)
+        {
+            head = temp->right;
+            temp->right = NULL;
+            printf("\nNode Successfully Deleted! Data of that Node :- %d\n", temp->data);
+            head->left = NULL;
+            free(temp);
+        }
+        else
+        {
+            while (i < loc - 1)
+            {
+                temp = temp->right;
+                i++;
+            }
+            if (loc == 1 && length() == 1)
+            {
+                temp->right = NULL;
+                temp->left = NULL;
+                printf("\nNode Successfully Deleted! Data of that Node :- %d\n", temp->data);
+                head = NULL;
+                free(temp);
+            }
+            else
+            {
+                temp_2 = temp->right;
+                if (loc != length())
+                {
+                    temp_2->right->left = temp;
+                }
+                temp->right = temp_2->right;
+                printf("\nNode Successfully Deleted! Data of that Node :- %d\n", temp_2->data);
+                // free the temp_2 node
+                temp_2->left = NULL;
+                temp_2->right = NULL;
+                free(temp_2);
+            }
+        }
+    }
+}
 int main()
 {
     int ch;
@@ -191,7 +245,7 @@ int main()
             break;
         case 6:
             system("cls");
-            // delete ();
+            delete ();
             break;
         case 7:
             exit(1);
