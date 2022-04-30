@@ -175,7 +175,46 @@ void add_after()
             i++;
         }
         temp->link = temp_2->link; // right side work
-        temp_2->link = temp; // left side work
+        temp_2->link = temp;       // left side work
+    }
+}
+
+// This function will reverse the linked list
+void reverse()
+{
+    if (head == NULL)
+    {
+        printf("\nList is Empty!!!\n");
+    }
+    else
+    {
+        int i = 0, j, temp;
+        struct node *p, *q;
+        // set initially both pointer to head value
+        p = q = head;
+        // get length value
+        length = count();
+        j = length - 1;
+        while (i < j)
+        {
+            int k = 0;
+            while (k < j)
+            {
+                q = q->link;
+                k++;
+            }
+            // swap the value
+            temp = p->data;
+            p->data = q->data;
+            q->data = temp;
+            // increase the i by 1 and decrease the j by 1
+            i++;
+            j--;
+            // move the p pointer to next node
+            p = p->link;
+            // assign the head value to again
+            q = head;
+        }
     }
 }
 int main()
@@ -184,7 +223,7 @@ int main()
     while (1)
     {
         printf("\nSingle Linked List Operations: ");
-        printf("\n1. Insert at End\n2. Insert at Begin\n3. Add After\n4. Display\n5. Length\n6. Delete\n7. Exit");
+        printf("\n1. Insert at End\n2. Insert at Begin\n3. Add After\n4. Display\n5. Length\n6. Delete\n7. Reverse\n8. Exit");
         printf("\nEnter Your Choice: ");
         scanf("%d", &ch);
         switch (ch)
@@ -215,6 +254,10 @@ int main()
             delete ();
             break;
         case 7:
+            system("cls");
+            reverse();
+            break;
+        case 8:
             exit(1);
             break;
         default:
