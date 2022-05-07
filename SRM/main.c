@@ -226,7 +226,7 @@ void delete_record()
     student s;
     char sname[20];
     system("cls");
-    printf("\n\t---------------------------- UPDATE RECORDS -----------------------------\n");
+    printf("\n\t---------------------------- DELETE RECORDS -----------------------------\n");
     printf("\n\t\tEnter name of Student:- ");
     fflush(stdin);
     scanf("%[^\n]", sname);
