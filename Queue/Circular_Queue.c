@@ -48,13 +48,13 @@ void delete ()
     else if (front == rear)
     {
         data = c_queue[front];
-        printf("\nDelete data:- %d\n", data);
+        printf("\nDeleted data:- %d\n", data);
         rear = front = -1;
     }
     else if (front == SIZE - 1)
     {
         data = c_queue[front];
-        printf("\nDelete data:- %d\n", data);
+        printf("\nDeleted data:- %d\n", data);
         front = 0;
     }
     else
@@ -72,6 +72,10 @@ void display()
     if (front == -1 && rear == -1)
     {
         printf("\nCircular Queue is empty!!!\n");
+    }
+    else if(rear == front){
+        printf("\nElements:- ");
+        printf("%d", c_queue[front]);
     }
     else if (rear > front)
     {
