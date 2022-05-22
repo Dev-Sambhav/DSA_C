@@ -73,11 +73,7 @@ void display()
     {
         printf("\nCircular Queue is empty!!!\n");
     }
-    else if (rear == front)
-    {
-        printf("\nElement:- %d", c_queue[front]);
-    }
-    else if (rear > front)
+    else if (rear >= front)
     {
         printf("\nElements:- ");
         for (i = front; i <= rear; i++)
